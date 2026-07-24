@@ -407,7 +407,7 @@ export default function InternetPage({ setTitleSide }: PageProps) {
                         }
                     }, "Try " + HIGHER_PORT)),
                 data.mapped && h('li', {}, "A bug in your modem/router, try rebooting it."),
-                h('li', {}, MSG_ISP),
+                h('li', {}, h('div', {}, "Your Internet Provider may not assign you a public IP address. ", wikiLink('Work-on-the-internet#double-nat', "Read more"))),
             )), 'warning')
         }
         catch(e: any) {
