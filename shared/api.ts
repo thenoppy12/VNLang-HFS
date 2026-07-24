@@ -18,6 +18,7 @@ const timeoutByApi: Dict = {
     get_status: 20, // can be lengthy on slow machines because of the find-process-on-busy-port feature
     check_update: 20,
     get_vfs: 20, // multiple sources may be slow
+    self_check: 15,
 }
 
 interface ApiCallOptions {

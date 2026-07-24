@@ -48,7 +48,7 @@ export async function selfCheck(url: string) {
                     console.debug(svc)
                     body = applySymbols(body)
                     serviceUrl = applySymbols(serviceUrl)!
-                    const timeout = 8_000
+                    const timeout = 9_000
                     const res = await haveTimeout(timeout, httpString(serviceUrl, { family, timeout, ...rest, body }))
                     const success = new RegExp(regexpSuccess).test(res)
                     const failure = new RegExp(regexpFailure).test(res)
