@@ -348,13 +348,13 @@ export const webdav: Koa.Middleware = async (ctx, next) => {
             res.write(`<response>
               <href>${_.escape(outPath + (append ? pathEncode(name, true) + (isDir ? '/' : '') : ''))}</href>
               <propstat>
-                <status>HTTP/1.1 200 OK</status>
                 <prop>
                     ${prefix('<getlastmodified>', (st?.mtime as any)?.toGMTString(), '</getlastmodified>')}
                     ${prefix('<creationdate>', (st?.birthtime || st?.ctime)?.toISOString().replace(/\..*/, '-00:00'), '</creationdate>')}
                     ${isDir ? '<resourcetype><collection/></resourcetype>'
                 : `<resourcetype/><getcontentlength>${st?.size}</getcontentlength>`}
                 </prop>
+                <status>HTTP/1.1 200 OK</status>
               </propstat>
               </response>
             `)
